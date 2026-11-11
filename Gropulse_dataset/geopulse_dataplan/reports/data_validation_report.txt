@@ -1,0 +1,12 @@
+GEOPULSE - DATA VALIDATION REPORT
+Data type: Synthetic / Mock GPS data (not real device tracking)
+
+Total records: 100000
+Unique devices: 1000
+Missing values: 0
+Duplicate records: 0
+Invalid latitude values: 0
+Invalid longitude values: 0
+
+Columns: DeviceID, Latitude, Longitude, Timestamp
+Status: Validation completed.
