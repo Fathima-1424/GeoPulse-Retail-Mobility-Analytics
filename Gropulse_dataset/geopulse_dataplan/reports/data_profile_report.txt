@@ -1,0 +1,169 @@
+
+====================================================
+       GEOPULSE - DAY 2 DATA PROFILE REPORT
+====================================================
+
+PROJECT:
+GeoPulse - Hyper-Local Retail Mobility Analytics
+
+TASK:
+GPS Dataset Inspection and Profiling
+
+----------------------------------------------------
+1. DATASET OVERVIEW
+----------------------------------------------------
+
+Total Records       : 100000
+Total Columns       : 4
+Unique Devices      : 1000
+Memory Usage        : 7.63 MB
+
+----------------------------------------------------
+2. COLUMN INFORMATION
+----------------------------------------------------
+
+Column Names:
+['DeviceID', 'Latitude', 'Longitude', 'Timestamp']
+
+Column Data Types:
+DeviceID                str
+Latitude            float64
+Longitude           float64
+Timestamp    datetime64[us]
+
+----------------------------------------------------
+3. DATASET SAMPLE
+----------------------------------------------------
+
+First 10 Records:
+DeviceID  Latitude  Longitude           Timestamp
+ D000001 13.083601  80.271829 2026-11-01 13:51:00
+ D000001 13.080601  80.268631 2026-11-01 13:56:00
+ D000001 13.083338  80.269308 2026-11-01 14:01:00
+ D000001 13.083407  80.268158 2026-11-01 14:06:00
+ D000001 13.084725  80.269609 2026-11-01 14:11:00
+ D000001 13.083991  80.269522 2026-11-01 14:16:00
+ D000001 13.084716  80.266632 2026-11-01 14:21:00
+ D000001 13.084839  80.266007 2026-11-01 14:26:00
+ D000001 13.085694  80.266592 2026-11-01 14:31:00
+ D000001 13.084660  80.265328 2026-11-01 14:36:00
+
+Last 5 Records:
+DeviceID  Latitude  Longitude           Timestamp
+ D001000 13.100784  80.221150 2026-11-01 14:11:00
+ D001000 13.104191  80.221963 2026-11-01 14:16:00
+ D001000 13.103737  80.221352 2026-11-01 14:21:00
+ D001000 13.106608  80.222672 2026-11-01 14:26:00
+ D001000 13.103975  80.219434 2026-11-01 14:31:00
+
+----------------------------------------------------
+4. DEVICE INFORMATION
+----------------------------------------------------
+
+Total Unique Devices: 1000
+
+Average Pings Per Device: 100.00
+Minimum Pings Per Device: 100
+Maximum Pings Per Device: 100
+
+Top 10 Devices by Ping Count:
+DeviceID
+D000001    100
+D000002    100
+D000003    100
+D000004    100
+D000005    100
+D000006    100
+D000007    100
+D000008    100
+D000009    100
+D000010    100
+
+----------------------------------------------------
+5. GPS LOCATION ANALYSIS
+----------------------------------------------------
+
+LATITUDE:
+
+Minimum Latitude: 12.987685
+Maximum Latitude: 13.110631
+Average Latitude: 13.047674348820001
+
+Latitude Statistical Summary:
+count    100000.000000
+mean         13.047674
+std           0.030149
+min          12.987685
+25%          13.024894
+50%          13.047821
+75%          13.070013
+max          13.110631
+
+LONGITUDE:
+
+Minimum Longitude: 80.204931
+Maximum Longitude: 80.275099
+Average Longitude: 80.23859640653001
+
+Longitude Statistical Summary:
+count    100000.000000
+mean         80.238596
+std           0.017754
+min          80.204931
+25%          80.222492
+50%          80.237045
+75%          80.253273
+max          80.275099
+
+----------------------------------------------------
+6. TIMESTAMP ANALYSIS
+----------------------------------------------------
+
+First Recorded Timestamp: 2026-11-01 06:00:00
+Last Recorded Timestamp : 2026-11-02 02:14:00
+
+Unique Dates: 2
+Total Time Duration: 0 days 20:14:00
+
+Date-wise GPS Ping Count:
+Timestamp
+2026-11-01    97594
+2026-11-02     2406
+
+----------------------------------------------------
+7. DAY 2 FINDINGS
+----------------------------------------------------
+
+1. The GPS dataset was successfully loaded
+   using the Pandas library.
+
+2. Dataset records, columns and datatypes
+   were inspected.
+
+3. Unique device identifiers and device-wise
+   ping distribution were analysed.
+
+4. Minimum, maximum and average GPS
+   coordinates were calculated.
+
+5. Timestamp coverage and date-wise
+   record distribution were examined.
+
+6. Numerical statistics and dataset
+   memory usage were calculated.
+
+----------------------------------------------------
+8. CONCLUSION
+----------------------------------------------------
+
+Dataset profiling provides a clear understanding
+of the structure and characteristics of the
+synthetic GPS mobility dataset.
+
+The analysis prepares the dataset for the next
+stages of data quality validation and mobility
+pattern analysis.
+
+STATUS: DAY 2 PROFILING COMPLETED
+
+====================================================
