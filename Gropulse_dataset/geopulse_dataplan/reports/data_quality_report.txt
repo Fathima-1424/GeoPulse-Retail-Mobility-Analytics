@@ -1,0 +1,29 @@
+
+GEOPULSE - GPS DATA QUALITY REPORT
+==================================
+
+Total Records: 100000
+
+1. MISSING VALUES
+DeviceID     0
+Latitude     0
+Longitude    0
+Timestamp    0
+
+2. DUPLICATE RECORDS
+Duplicate Rows: 0
+
+3. LATITUDE VALIDATION
+Invalid Latitude Values: 0
+
+4. LONGITUDE VALIDATION
+Invalid Longitude Values: 0
+
+5. TIMESTAMP VALIDATION
+Invalid Timestamps: 0
+
+6. DEVICE ID VALIDATION
+Invalid DeviceIDs: 0
+
+7. OVERALL SUMMARY
+Data Quality Checks Completed Successfully.
