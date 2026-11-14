@@ -1,0 +1,37 @@
+
+version: 2
+
+models:
+  - name: stg_gps_pings
+
+    description: >
+      Cleaned and standardized GPS mobility pings.
+
+    columns:
+
+      - name: device_id
+        description: "Device identifier."
+        data_tests:
+          - not_null
+          - not_empty_string
+
+      - name: latitude
+        data_tests:
+          - not_null
+
+      - name: longitude
+        data_tests:
+          - not_null
+
+      - name: event_timestamp
+        data_tests:
+          - not_null
+
+      - name: location
+        description: "Snowflake GEOGRAPHY point."
+        data_tests:
+          - not_null
+
+      - name: loaded_at
+        data_tests:
+          - not_null

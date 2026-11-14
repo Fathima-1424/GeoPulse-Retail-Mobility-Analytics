@@ -1,0 +1,29 @@
+
+version: 2
+
+sources:
+  - name: geopulse_raw
+    database: GEOPULSE_DB
+    schema: RAW
+
+    tables:
+      - name: gps_pings
+        description: "Cleaned GPS mobility pings loaded from the landing table."
+        columns:
+          - name: device_id
+            description: "Unique identifier of the device."
+
+          - name: latitude
+            description: "Latitude coordinate in decimal degrees."
+
+          - name: longitude
+            description: "Longitude coordinate in decimal degrees."
+
+          - name: event_timestamp
+            description: "Timestamp when the GPS event occurred."
+
+          - name: location
+            description: "Snowflake GEOGRAPHY point representing the GPS location."
+
+          - name: loaded_at
+            description: "Timestamp when the record was loaded into Snowflake."
