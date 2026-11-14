@@ -1,0 +1,83 @@
+
+GEOPULSE - MOBILITY ANALYSIS REPORT
+===================================
+
+1. DATASET OVERVIEW
+
+Total GPS Records: 100000
+Total Unique Devices: 1000
+
+2. TIME PERIOD
+
+Start Time: 2026-11-01 06:00:00
+End Time: 2026-11-02 02:14:00
+
+3. DEVICE-WISE ANALYSIS
+
+Average Pings per Device: 100.00
+Maximum Pings by a Device: 100
+Minimum Pings by a Device: 100
+
+Top 10 Active Devices:
+DeviceID
+D000001    100
+D000002    100
+D000003    100
+D000004    100
+D000005    100
+D000006    100
+D000007    100
+D000008    100
+D000009    100
+D000010    100
+
+4. HOURLY PING ANALYSIS
+
+Busiest Hour: 14:00
+Pings During Busiest Hour: 8492
+
+Hourly Ping Counts:
+Hour
+0     1728
+1      650
+2       28
+3        0
+4        0
+5        0
+6      537
+7     1624
+8     2709
+9     3782
+10    4823
+11    6021
+12    6994
+13    7914
+14    8492
+15    8424
+16    8271
+17    8225
+18    7536
+19    6357
+20    5309
+21    4416
+22    3519
+23    2641
+
+5. DAILY PING ANALYSIS
+
+Daily Ping Counts:
+Date
+2026-11-01    97594
+2026-11-02     2406
+
+6. LOCATION SUMMARY
+
+Latitude Minimum: 12.987685
+Latitude Maximum: 13.110631
+
+Longitude Minimum: 80.204931
+Longitude Maximum: 80.275099
+
+7. OVERALL SUMMARY
+
+GPS mobility analysis completed successfully.
