@@ -1,0 +1,58 @@
+
+version: 2
+
+models:
+  - name: fct_mobility_kpis
+
+    description: >
+      Device-level mobility KPI fact table containing GPS
+      activity, distance, speed, and observation interval
+      metrics for each device.
+
+    columns:
+
+      - name: device_id
+        description: "Unique GPS device identifier."
+        data_tests:
+          - not_null
+          - unique
+
+      - name: first_ping_timestamp
+        description: "First recorded GPS timestamp for the device."
+        data_tests:
+          - not_null
+
+      - name: last_ping_timestamp
+        description: "Last recorded GPS timestamp for the device."
+        data_tests:
+          - not_null
+
+      - name: total_gps_pings
+        description: "Total GPS records for each device."
+        data_tests:
+          - not_null
+          - positive_value
+
+      - name: valid_distance_intervals
+        description: "Number of valid distance calculations."
+        data_tests:
+          - not_null
+
+      - name: valid_speed_intervals
+        description: "Number of valid speed calculations."
+        data_tests:
+          - not_null
+
+      - name: total_distance_km
+        description: "Total estimated distance in kilometers."
+        data_tests:
+          - not_null
+
+      - name: avg_speed_kmh
+        description: "Average calculated GPS speed in km/h."
+
+      - name: max_speed_kmh
+        description: "Maximum calculated GPS speed in km/h."
+
+      - name: total_observed_interval_hours
+        description: "Total time between consecutive GPS observations."
