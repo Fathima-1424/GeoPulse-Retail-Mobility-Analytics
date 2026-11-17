@@ -1,0 +1,40 @@
+GEOPULSE - GEOGRAPHICAL ANALYSIS REPORT
+==================================================
+Total GPS records: 100000
+Valid geographical records: 100000
+Invalid coordinate records: 0
+Invalid timestamp records: 0
+Unique devices: 1000
+Unique grouped locations: 4610
+
+GEOGRAPHICAL BOUNDARIES
+--------------------------------------------------
+Minimum Latitude: 12.987685
+Maximum Latitude: 13.110631
+Minimum Longitude: 80.204931
+Maximum Longitude: 80.275099
+
+AVERAGE LOCATION
+--------------------------------------------------
+Average Latitude: 13.047674348820001
+Average Longitude: 80.23859640653001
+
+TOP 10 ACTIVE LOCATIONS
+--------------------------------------------------
+ location_rank  latitude_group  longitude_group  total_pings  unique_devices
+             1          13.036           80.261          361             127
+             2          13.083           80.271          352              99
+             3          13.061           80.250          334              98
+             4          13.060           80.250          307             107
+             5          13.060           80.249          304             113
+             6          13.061           80.249          293             105
+             7          13.011           80.234          292             112
+             8          12.992           80.218          291             101
+             9          13.036           80.262          289              79
+            10          13.083           80.270          283             105
+
+ANALYSIS NOTES
+--------------------------------------------------
+Nearby GPS coordinates are grouped using 3-decimal-place rounding.
+Location activity is measured using GPS ping counts.
+These results represent synthetic GPS activity, not confirmed retail footfall.
