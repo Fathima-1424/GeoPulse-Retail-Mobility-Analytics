@@ -1,0 +1,216 @@
+query :
+
+WITH movement_validation AS (
+
+    SELECT
+        DEVICE_ID,
+
+        COUNT(*) AS EXPECTED_GPS_PINGS,
+
+        COUNT(DISTANCE_METERS) AS EXPECTED_DISTANCE_INTERVALS,
+
+        COUNT(SPEED_KMH) AS EXPECTED_SPEED_INTERVALS,
+
+        MIN(EVENT_TIMESTAMP) AS EXPECTED_FIRST_PING,
+
+        MAX(EVENT_TIMESTAMP) AS EXPECTED_LAST_PING,
+
+        SUM(DISTANCE_METERS) / 1000
+            AS EXPECTED_TOTAL_DISTANCE_KM
+
+    FROM GEOPULSE_DB.ANALYTICS.INT_GPS_MOVEMENT
+
+    GROUP BY DEVICE_ID
+
+),
+
+comparison AS (
+
+    SELECT
+        k.DEVICE_ID,
+
+        k.TOTAL_GPS_PINGS,
+        m.EXPECTED_GPS_PINGS,
+
+        k.VALID_DISTANCE_INTERVALS,
+        m.EXPECTED_DISTANCE_INTERVALS,
+
+        k.VALID_SPEED_INTERVALS,
+        m.EXPECTED_SPEED_INTERVALS,
+
+        k.FIRST_PING_TIMESTAMP,
+        m.EXPECTED_FIRST_PING,
+
+        k.LAST_PING_TIMESTAMP,
+        m.EXPECTED_LAST_PING,
+
+        k.TOTAL_DISTANCE_KM,
+        m.EXPECTED_TOTAL_DISTANCE_KM
+
+    FROM GEOPULSE_DB.ANALYTICS.FCT_MOBILITY_KPIS k
+
+    LEFT JOIN movement_validation m
+        ON k.DEVICE_ID = m.DEVICE_ID
+
+)
+
+SELECT
+
+    COUNT(*) AS TOTAL_DEVICES,
+
+    COUNT_IF(
+        TOTAL_GPS_PINGS != EXPECTED_GPS_PINGS
+    ) AS GPS_PING_MISMATCHES,
+
+    COUNT_IF(
+        VALID_DISTANCE_INTERVALS != EXPECTED_DISTANCE_INTERVALS
+    ) AS DISTANCE_INTERVAL_MISMATCHES,
+
+    COUNT_IF(
+        VALID_SPEED_INTERVALS != EXPECTED_SPEED_INTERVALS
+    ) AS SPEED_INTERVAL_MISMATCHES,
+
+    COUNT_IF(
+        FIRST_PING_TIMESTAMP != EXPECTED_FIRST_PING
+        OR LAST_PING_TIMESTAMP != EXPECTED_LAST_PING
+    ) AS TIMESTAMP_MISMATCHES,
+
+    COUNT_IF(
+        ABS(
+            TOTAL_DISTANCE_KM - EXPECTED_TOTAL_DISTANCE_KM
+        ) > 0.000001
+    ) AS DISTANCE_MISMATCHES
+
+FROM comparison;
+
+understanding:
+
+Understand the business meaning of KPIs
+
+KPI	                       Business meaning	                                                        Example question
+TOTAL_GPS_PINGS	               Number of GPS observations recorded for a device	                        Which devices generate the most location data?
+TOTAL_DISTANCE_KM	       Estimated total distance travelled between consecutive GPS observations	Which devices cover the greatest distance?                                                                                                                                
+AVG_SPEED_KMH	               Average of the calculated GPS interval speeds	                        Which devices have higher average speeds?
+MAX_SPEED_KMH	               Highest calculated GPS interval speed	                                What is the highest recorded interval speed?
+TOTAL_OBSERVED_INTERVAL_HOURS  Sum of time intervals between consecutive GPS observations	        How much observation time is represented?
+VALID_DISTANCE_INTERVALS       Number of intervals with a calculated distance	                        How many usable distance intervals exist?
+VALID_SPEED_INTERVALS	       Number of intervals with a calculated speed	                        How many usable speed intervals exist?
+
+
+Important business interpretation:
+- GPS speed is calculated from straight-line distance between GPS points, not actual road distance.
+- Average speed is an arithmetic average of interval speeds.
+- Observed interval hours do not necessarily mean the device was continuously moving.
+
+
+
+query :
+
+
+SELECT
+    DEVICE_ID,
+    FIRST_PING_TIMESTAMP,
+    LAST_PING_TIMESTAMP,
+    TOTAL_GPS_PINGS,
+    VALID_DISTANCE_INTERVALS,
+    VALID_SPEED_INTERVALS,
+    TOTAL_DISTANCE_KM,
+    AVG_SPEED_KMH,
+    MAX_SPEED_KMH,
+    TOTAL_OBSERVED_INTERVAL_HOURS
+
+FROM GEOPULSE_DB.ANALYTICS.FCT_MOBILITY_KPIS
+
+ORDER BY TOTAL_DISTANCE_KM DESC
+
+LIMIT 20;
+
+
+understanding:
+
+
+1,000
+Total devices in the KPI table
+
+100
+GPS pings per displayed device
+
+99
+Valid movement intervals per device
+
+8.25
+Observed interval hours per device
+
+
+Important observations
+1. Highest-distance device: D000472, with approximately 29.55 km.
+2. Highest average speed among the displayed devices: D000472, approximately 3.58 km/h.
+3. Highest maximum speed among the displayed devices: D000346, approximately 10.02 km/h.
+4. Every displayed device has 100 GPS pings and 99 valid movement intervals.
+5. The observed interval time is 8.25 hours for each displayed device.
+These are the top 20 devices, not necessarily the highest or lowest values across the entire dataset for every KPI.
+
+
+
+query :
+
+
+
+SELECT
+
+    COUNT(*) AS TOTAL_DEVICES,
+
+    MIN(TOTAL_GPS_PINGS) AS MIN_GPS_PINGS,
+    MAX(TOTAL_GPS_PINGS) AS MAX_GPS_PINGS,
+
+    ROUND(MIN(TOTAL_DISTANCE_KM), 2) AS MIN_DISTANCE_KM,
+    ROUND(AVG(TOTAL_DISTANCE_KM), 2) AS AVG_DISTANCE_KM,
+    ROUND(MAX(TOTAL_DISTANCE_KM), 2) AS MAX_DISTANCE_KM,
+
+    ROUND(MIN(AVG_SPEED_KMH), 2) AS MIN_AVG_SPEED,
+    ROUND(AVG(AVG_SPEED_KMH), 2) AS OVERALL_DEVICE_AVG_SPEED,
+    ROUND(MAX(AVG_SPEED_KMH), 2) AS MAX_AVG_SPEED,
+
+    ROUND(MAX(MAX_SPEED_KMH), 2) AS HIGHEST_RECORDED_SPEED,
+
+    ROUND(
+        AVG(TOTAL_OBSERVED_INTERVAL_HOURS), 2
+    ) AS AVG_OBSERVED_HOURS
+
+FROM GEOPULSE_DB.ANALYTICS.FCT_MOBILITY_KPIS;
+
+
+understanding:
+
+
+Results analysis
+
+1,000
+Total devices
+
+100
+GPS pings per device (min–max)
+
+19.66 km
+Minimum device distance
+
+29.55 km
+Maximum device distance
+
+23.91 km
+Average device distance
+
+12.95 km/h
+Highest recorded interval speed
+
+
+Complete KPI range summary
+
+KPI	                Minimum	Average	Maximum
+GPS pings	        100	100	100
+Total distance (km)	19.66	23.91	29.55
+Average speed (km/h)	2.38	2.90	3.58
+
+Average observed interval time: 8.25 hours.
+
+One important distinction: 2.90 km/h is the average of the 1,000 device-level average speeds, not the distance-weighted speed of all GPS movements.
