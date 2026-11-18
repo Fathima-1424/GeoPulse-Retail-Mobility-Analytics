@@ -1,0 +1,36 @@
+GEOPULSE - DEVICE MOVEMENT ANALYSIS REPORT
+==================================================
+
+Total GPS Records: 100000
+Total Unique Devices: 1000
+Valid Movement Records: 99000
+Invalid Time Gaps: 0
+
+MOVEMENT STATISTICS
+------------------------------
+Total Distance (km): 23909.161
+Average Distance (km): 0.242
+Average Speed (km/h): 2.898
+Maximum Speed (km/h): 12.953
+Possible High-Speed Records (>120 km/h): 0
+
+TOP 10 DEVICES BY TOTAL DISTANCE
+----------------------------------------
+DeviceID  Total_Pings  Total_Distance_km  Average_Speed_kmh  Maximum_Speed_kmh  Movement_Count  High_Speed_Count
+ D000472          100             29.546              3.581              8.098              99                 0
+ D000634          100             29.384              3.562              9.611              99                 0
+ D000304          100             28.159              3.413              6.555              99                 0
+ D000684          100             28.122              3.409              8.400              99                 0
+ D000346          100             28.027              3.397             10.022              99                 0
+ D000045          100             27.849              3.376              7.828              99                 0
+ D000458          100             27.719              3.360              7.984              99                 0
+ D000012          100             27.698              3.357              8.307              99                 0
+ D000706          100             27.670              3.354              8.009              99                 0
+ D000095          100             27.511              3.335              8.358              99                 0
+
+ANALYSIS NOTES
+------------------------------
+Distance was calculated using the Haversine formula.
+Speed was calculated using distance and time difference.
+Speeds above 120 km/h are flagged for further review.
+GPS distance represents straight-line distance between consecutive recorded points, not actual road distance.
