@@ -1,0 +1,24 @@
+GEOPULSE GPS HOTSPOT ANALYSIS REPORT
+=============================================
+
+Total GPS Records: 100000
+Total Unique Devices: 1000
+Total Identified Hotspots: 4610
+
+TOP 10 GPS HOTSPOTS
+---------------------------------------------
+ Hotspot_Rank  Latitude_Grid  Longitude_Grid  Total_Pings  Unique_Devices
+            1         13.036          80.261          361             127
+            2         13.083          80.271          352              99
+            3         13.061          80.250          334              98
+            4         13.060          80.250          307             107
+            5         13.060          80.249          304             113
+            6         13.061          80.249          293             105
+            7         13.011          80.234          292             112
+            8         12.992          80.218          291             101
+            9         13.036          80.262          289              79
+           10         13.083          80.270          283             105
+
+Analysis Method:
+GPS coordinates were rounded to 3 decimal places and grouped to identify frequently recorded locations.
+Ping counts represent GPS recording frequency, not confirmed customer footfall.
