@@ -1,0 +1,18 @@
+
+GEOPULSE - TEMPORAL MOBILITY ANALYSIS
+=====================================
+
+Total GPS Records: 100000
+Unique Devices: 1000
+
+Peak Movement Hour: 14:00
+Peak Hour Records: 8492
+
+Most Active Day: Sunday
+Most Active Day Records: 97594
+
+Analysis:
+Hourly and daily movement patterns were
+analysed using GPS timestamp data.
+
+Generated using Python and Pandas.
