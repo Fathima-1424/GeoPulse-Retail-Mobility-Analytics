@@ -1,0 +1,2 @@
+total_records,valid_records,invalid_records,unique_devices,duplicate_records,invalid_latitudes,invalid_longitudes
+100000,100000,0,1000,0,0,0

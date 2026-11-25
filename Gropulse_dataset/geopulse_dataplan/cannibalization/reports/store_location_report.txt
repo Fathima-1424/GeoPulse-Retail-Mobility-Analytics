@@ -1,0 +1,6 @@
+STORE LOCATION VALIDATION REPORT
+================================
+
+Store CSV template exists.
+No real store records have been added yet.
+Store coordinates are required for future analysis.
