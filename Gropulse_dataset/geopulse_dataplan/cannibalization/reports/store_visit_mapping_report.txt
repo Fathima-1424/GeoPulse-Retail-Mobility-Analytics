@@ -1,0 +1,10 @@
+STORE VISIT MAPPING REPORT
+==========================
+
+GPS records checked: 100000
+Valid store records: 0
+GPS pings matched to stores: 0
+Unique device-store visits: 0
+
+Store coordinates are not available yet.
+No real GPS-to-store mapping was performed.

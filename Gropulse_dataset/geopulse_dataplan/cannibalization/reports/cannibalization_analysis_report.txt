@@ -1,0 +1,10 @@
+CANNIBALIZATION ANALYSIS REPORT
+===============================
+
+Devices mapped to stores: 0
+Devices visiting multiple stores: 0
+Multiple-store device percentage: 0.00%
+Store pairs with shared devices: 0
+
+No store visit records are available.
+Add real store coordinates and run the mapping script before interpreting cannibalization results.
